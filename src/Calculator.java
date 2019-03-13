@@ -2,7 +2,7 @@
 public class Calculator {
 	
 	float add(float x, float y){
-		return x +y;
+		return x + y;
 	}
 	
 	float subtract(float x, float y) {
