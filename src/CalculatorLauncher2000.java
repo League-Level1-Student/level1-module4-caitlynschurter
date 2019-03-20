@@ -18,6 +18,7 @@ public class CalculatorLauncher2000 implements MouseListener {
 	JButton multiply;
 	JButton divide;
 	JLabel label;
+	JLabel answer;
 	JTextField jtf1;
 	JTextField jtf2;
 	String t1;
@@ -73,6 +74,10 @@ public class CalculatorLauncher2000 implements MouseListener {
 		label = new JLabel();
 		label.setVisible(true);
 		panel.add(label);
+		
+		answer = new JLabel();
+		answer.setVisible(true);
+		panel.add(answer);
 
 		jtf1 = new JTextField("", 10);
 		jtf2 = new JTextField("", 10);
@@ -85,12 +90,35 @@ public class CalculatorLauncher2000 implements MouseListener {
 	public void mouseClicked(MouseEvent e) {
 		t1 = jtf1.getText();
 		t2 = jtf2.getText();
-		int x = Integer.parseInt(t1);
-		int y = Integer.parseInt(t2);
+		float x = Float.parseFloat(t1);
+		float y = Float.parseFloat(t2);
 		// TODO Auto-generated method stub
 		if(e.getSource().equals(add)) {
-			calc.add(x, y);
-			
+			float sum = 0;
+			sum = calc.add(x, y);
+			System.out.println(sum);
+			answer.setText(Float.toString(sum));
+		}
+		
+		else if(e.getSource().equals(subtract)) {
+			float difference = 0;
+			difference = calc.subtract(x, y);
+			System.out.println(difference);
+			answer.setText(Float.toString(difference));
+		}
+		
+		else if(e.getSource().equals(multiply)) {
+			float product = 0;
+			product = calc.multiply(x, y);
+			System.out.println(product);
+			answer.setText(Float.toString(product));
+		}
+		
+		else {
+			float quotient = 0;
+			quotient = calc.divide(x, y);
+			System.out.println(quotient);
+			answer.setText(Float.toString(quotient));
 		}
 	}
 
